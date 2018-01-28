@@ -81,7 +81,7 @@ public class FoodList extends AppCompatActivity {
                     // when user tyoe their list , we will change suggest list
 
                 List<String> suggest = new ArrayList<String>();
-                for(String search:suggest)
+                for(String search:suggestList)
                 {
                     if(search.toLowerCase().contains(materialSearchBar.getText().toLowerCase()))
                         suggest.add(search);
@@ -94,12 +94,69 @@ public class FoodList extends AppCompatActivity {
 
             }
         });
+        materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
+            @Override
+            public void onSearchStateChanged(boolean enabled) {
+                // when search bar is closed restore search adapter
+                if(!enabled)
+                    recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onSearchConfirmed(CharSequence text) {
+
+                //when search finish show result of adapter
+
+                startSearch(text);
+
+            }
+
+            @Override
+            public void onButtonClicked(int buttonCode) {
+
+            }
+        });
+    }
+
+    private void startSearch(CharSequence text) {
+
+        searchadapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(
+                Food.class,
+                R.layout.food_item,
+                FoodViewHolder.class,
+                foodList.orderByChild("Name").equalTo(text.toString())
+
+        ) {
+            @Override
+            protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
+                viewHolder.food_name.setText(model.getName());
+                Picasso.with(getBaseContext()).load(model.getImage())
+                        .into(viewHolder.food_image);
+
+                final  Food local= model;
+                viewHolder.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+
+                        //start new activity here
+                        Intent foodDetail =new Intent(FoodList.this,FoodDetail.class);
+                        foodDetail.putExtra("FoodId",searchadapter.getRef(position).getKey());
+                        startActivity(foodDetail);
+
+                    }
+                });
+
+
+            }
+        };
+        recyclerView.setAdapter(searchadapter); //set adapter for recycler viw is search result
+
     }
 
     private void loadSuggest() {
 
 
-        foodList.orderByChild("MenuId".equals(categoryId))
+        foodList.orderByChild("MenuId").equalTo(categoryId)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -115,7 +172,7 @@ public class FoodList extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
-                })
+                });
 
     }
 
