@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "613703457943",
+    "firebase_url": "https://smartcafe-67191.firebaseio.com",
+    "project_id": "smartcafe-67191",
+    "storage_bucket": "smartcafe-67191.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613703457943:android:94d9fbfdf37d2990",
+        "android_client_info": {
+          "package_name": "com.example.hp.smartcafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613703457943-ofd6n96c4cvool9edbohol48erlk0884.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hp.smartcafe",
+            "certificate_hash": "0c34390254a9eb4839c66c203d0a8dff20cc32f0"
+          }
+        },
+        {
+          "client_id": "613703457943-025igognfv451753qlmkts3uh0176r8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKy2c8WizkaaAf0_m1tp2zYwnzmHOl-30"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613703457943-025igognfv451753qlmkts3uh0176r8u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

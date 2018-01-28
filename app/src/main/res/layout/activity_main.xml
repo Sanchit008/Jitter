@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    tools:context="com.example.hp.smartcafe.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="76dp">
+
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:id="@+id/buttonsignup"
+            android:text="Sign Up"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:layout_width="8dp"
+            android:background="@color/Black"
+            android:shadowColor="@android:color/black"
+            android:layout_height="wrap_content" >
+        </Button>
+
+        <Button
+            android:id="@+id/buttonsignin"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:layout_width="8dp"
+            android:background="@color/Black"
+            android:shadowColor="@android:color/black"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
+           >
+        </Button>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="285dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="68dp"
+        android:src="@drawable/cafe_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+
+        android:id="@+id/textSlogan"
+        android:layout_width="227dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="61dp"
+
+        android:layout_centerInParent="true"
+        android:text="@string/Slogan"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
